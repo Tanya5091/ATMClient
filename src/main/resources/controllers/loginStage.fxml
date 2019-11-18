@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="430.0" prefWidth="390.0" style="-fx-background-color: #4a075a#4a075a;"
+            stylesheets="/style/Styles.css" xmlns="http://javafx.com/javafx/11.0.1"
+            fx:controller="controllers.LoginController">
+
+    <HBox alignment="CENTER" prefHeight="153.0" prefWidth="386.0">
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="91.0" prefWidth="199.0" text="KmAlfa"
+               textFill="#f4c6ff">
+            <font>
+                <Font name="Calibri" size="64.0"/>
+            </font>
+        </Label>
+    </HBox>
+    <Pane layoutY="74.0" prefHeight="357.0" prefWidth="386.0">
+        <TextField fx:id="cardNumField" layoutX="192.0" layoutY="96.0" prefHeight="20.0" prefWidth="165.0"
+                   style="-fx-border-color: #9643a9; -fx-background-color: #4a075a; -fx-border-radius: 10; -fx-text-inner-color: #ffffff;"/>
+        <PasswordField fx:id="pinField" layoutX="192.0" layoutY="143.0" prefHeight="27.0" prefWidth="165.0"
+                       style="-fx-border-color: #9643a9; -fx-background-color: #4a075a; -fx-border-radius: 10; -fx-text-inner-color: #ffffff;"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="100.0" prefHeight="20.0"
+               prefWidth="105.0" text="Card number" textFill="#e2aaf0">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label layoutX="102.0" layoutY="143.0" text="PIN" textFill="#e2aaf0">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Button fx:id="logButton" layoutX="133.0" layoutY="234.0" mnemonicParsing="false" onAction="#logAction"
+                prefHeight="40.0" prefWidth="137.0" style="-fx-background-color: #740b8e;" text="LOGIN"
+                textFill="#f4c6ff"/>
+        <Separator layoutX="23.0" layoutY="53.0" opacity="0.6" prefHeight="1.0" prefWidth="340.0"
+                   style="-fx-background-color: #f4c6ff;"/>
+        <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="187.0"
+               maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="27.0"
+               prefWidth="370.0" textFill="#ff0346">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+    </Pane>
+</AnchorPane>
