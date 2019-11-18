@@ -17,10 +17,10 @@ public class Main extends Application {
 
     private static final String SERVER_ADDRESS = "13.81.213.191", REGISTRY_NAME = "bankServer";
     private static final int SERVER_PORT = 1099;
-    public static ReceiveMessageInterface rmiServer;
+    static ReceiveMessageInterface rmiServer;
     public static User user;
 
-    public static void main(String[] args) {
+    public static void initiate(String[] args) {
         try {
             Registry registry = LocateRegistry.getRegistry(SERVER_ADDRESS, SERVER_PORT);
             rmiServer = (ReceiveMessageInterface) registry.lookup(REGISTRY_NAME);

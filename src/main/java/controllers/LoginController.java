@@ -49,7 +49,7 @@ public class LoginController implements Initializable {
                 int op = PinCodeAnalyzer.generateOp();
                 int pin = PinCodeAnalyzer.generatePin(Integer.parseInt(pinN), op);
                 String cardHolderName = Main.rmiServer.verifyPIN(cardN, pin, op);
-                if (cardHolderName != null) {
+                if (!cardHolderName.isEmpty()) {
                     Main.user = new User(cardHolderName, cardN, pin, op);
                     changeStage(actionEvent);
                 } else {

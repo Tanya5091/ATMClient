@@ -53,7 +53,7 @@ public class AutotransfersStageController implements Initializable {
 
             //get array of cards?
             //get info
-            if (trans == null || trans.equals("")) {
+            if (trans.isEmpty()) {
                 Label inf = new Label("You have no autotransfers.");
                 inf.setFont(new Font("System", 16));
                 paneID.getChildren().add(inf);
