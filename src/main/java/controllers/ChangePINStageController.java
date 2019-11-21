@@ -57,11 +57,7 @@ public class ChangePINStageController implements Initializable {
         } else {
 
             int pin = PinCodeAnalyzer.generatePin(Integer.parseInt(newPIN), Main.user.getOp());
-//            if (Main.user.getPin() != pin) {
-//                displayErrorField("Password doesn`t match");
-//            }
             int oldPin = PinCodeAnalyzer.generatePin(Integer.parseInt(oldPIN), Main.user.getOp());
-//
             if (Main.user.getPin() != oldPin) {
                 displayErrorField("Old password is wrong");
             } else
@@ -72,7 +68,7 @@ public class ChangePINStageController implements Initializable {
                     } else
                         changeStage(actionEvent, "FailWindow.fxml");
                 } catch (RemoteException e) {
-                    e.printStackTrace();
+                    System.err.println(e.getMessage());
                 }
 
 
@@ -90,7 +86,7 @@ public class ChangePINStageController implements Initializable {
             window.setScene(tableViewScene);
             window.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 

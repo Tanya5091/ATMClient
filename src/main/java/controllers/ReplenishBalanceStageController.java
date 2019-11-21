@@ -36,8 +36,6 @@ public class ReplenishBalanceStageController implements Initializable {
             char charTyped = event.getCharacter().charAt(0);
             checkAmountField(amountField.getText(), charTyped);
         });
-
-
     }
 
     private void displayErrorField(String s) {
@@ -95,7 +93,7 @@ public class ReplenishBalanceStageController implements Initializable {
             window.setScene(tableViewScene);
             window.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 }

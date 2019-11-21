@@ -33,24 +33,14 @@ public class AutotransfersStageController implements Initializable {
     @FXML
     Button backMenuButton;
     @FXML
-    private TableColumn<TransferData, String> cardNumCol;
-    @FXML
-    private TableColumn<TransferData, Double> amountCol;
-    @FXML
-    private TableColumn<TransferData, String> periodicityCol;
-    @FXML
-    private
-    Button deleteButton;
-    @FXML
     private TableView<TransferData> table;
+    @FXML
     private ObservableList<TransferData> transferData = FXCollections.observableArrayList();
 
     public void initialize(URL location, ResourceBundle resources) {
         String trans;
         try {
             trans = Main.rmiServer.getAutoTransfers(Main.user.getCardNumber(), Main.user.getPin(), Main.user.getOp());
-
-
             //get array of cards?
             //get info
             if (trans.isEmpty()) {
@@ -69,9 +59,9 @@ public class AutotransfersStageController implements Initializable {
 
 
                 table = new TableView<>();
-                cardNumCol = new TableColumn<>("Card number to transfer");
-                periodicityCol = new TableColumn<>("Periodicity");
-                amountCol = new TableColumn<>("Amount");
+                TableColumn<TransferData, String> cardNumCol = new TableColumn<>("Card number to transfer");
+                TableColumn<TransferData, String> periodicityCol = new TableColumn<>("Periodicity");
+                TableColumn<TransferData, Double> amountCol = new TableColumn<>("Amount");
                 table.getColumns().addAll(cardNumCol, periodicityCol, amountCol);
 
                 cardNumCol.setCellValueFactory(new PropertyValueFactory<>("CardNum"));
@@ -90,12 +80,11 @@ public class AutotransfersStageController implements Initializable {
                 table.prefHeightProperty().bind(table.fixedCellSizeProperty().multiply(Bindings.size(table.getItems()).add(1.03)));
                 table.minHeightProperty().bind(table.prefHeightProperty());
                 table.maxHeightProperty().bind(table.prefHeightProperty());
-//            table.setMaxHeight(175);
 
                 paneID.getChildren().add(table);
                 table.relocate(25, 75);
 
-                deleteButton = new Button("Delete");
+                Button deleteButton = new Button("Delete");
                 deleteButton.setLayoutX(235);
                 deleteButton.setLayoutY(288);
                 deleteButton.setPrefHeight(40);
@@ -104,7 +93,7 @@ public class AutotransfersStageController implements Initializable {
                 paneID.getChildren().add(deleteButton);
             }
         } catch (RemoteException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
@@ -161,7 +150,7 @@ public class AutotransfersStageController implements Initializable {
             window.setScene(tableViewScene);
             window.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 }

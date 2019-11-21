@@ -39,7 +39,6 @@ public class AccountStageController implements Initializable {
     private void changeStage(ActionEvent actionEvent, String path) {
         Parent tableViewParent;
         try {
-
             tableViewParent = FXMLLoader.load(getClass().getResource(path));
             Scene tableViewScene = new Scene(tableViewParent);
             //This line gets the Stage information
@@ -47,7 +46,7 @@ public class AccountStageController implements Initializable {
             window.setScene(tableViewScene);
             window.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 

@@ -15,7 +15,8 @@ import java.rmi.registry.Registry;
 
 public class Main extends Application {
 
-    private static final String SERVER_ADDRESS = "13.81.213.191", REGISTRY_NAME = "bankServer";
+    private static final String SERVER_ADDRESS = "13.81.213.191";
+    private static final String REGISTRY_NAME = "bankServer";
     private static final int SERVER_PORT = 1099;
     static ReceiveMessageInterface rmiServer;
     public static User user;

@@ -64,11 +64,6 @@ public class LoginController implements Initializable {
     private void changeStage(ActionEvent actionEvent) {
         Parent tableViewParent;
         try {
-
-//            Path first = Paths.get("C:/Users/Julia/Desktop/workspace/MOOP_KmAlfa/src/controllers/MainController.java"); Path second = Paths.get("C:/Users/Julia/Desktop/workspace/MOOP_KmAlfa/src/controllers/accountStage.fxml");
-//            System.out.println(first.relativize(second));
-//            System.out.println(second.relativize(first));
-
             tableViewParent = FXMLLoader.load(getClass().getResource("accountStage.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             //This line gets the Stage information
@@ -76,7 +71,7 @@ public class LoginController implements Initializable {
             window.setScene(tableViewScene);
             window.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
